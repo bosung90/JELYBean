@@ -4,6 +4,7 @@ import MainMenu from './components/pages/MainMenu'
 import Login from './components/pages/Login'
 import Post from './components/pages/Post'
 import PostDetail from './components/pages/PostDetail'
+import PostList from './components/pages/PostList'
 
 import React, {
 	Component,
@@ -45,6 +46,8 @@ export default class Route extends Component{
 						return <Post route={route} navigator={navigator} />
 					} else if(route.id === 'postDetail') {
 						return <PostDetail route={route} navigator={navigator} />
+					} else if(route.id === 'postList') {
+						return <PostList route={route} navigator={navigator} />
 					}
 //           return React.createElement(route.scene_component, {navigator})
         }}

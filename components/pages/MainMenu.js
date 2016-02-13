@@ -36,13 +36,13 @@ export default class MainMenu extends Component{
 						source = {require('./../img/main_menu_img1.jpg')}
 						resizeMode={Image.resizeMode.cover}
 					/>
-					<TouchableOpacity onPress ={()=>{_this.props.navigator.push({id: 'post', prop: _this.props})}}>
+					<TouchableOpacity onPress={()=>{_this.props.navigator.push({id: 'post', prop: _this.props})}}>
 						<Image
 							style = {styles.newPostIcon}
 							source = {require('./../img/new_post_icon.png')}
 						/>
 					</TouchableOpacity>
-					<TouchableOpacity>
+					<TouchableOpacity onPress={()=>{_this.props.navigator.push({id: 'postList', prop: _this.props})}}>
 					<Image
 						style = {styles.searchIcon}
 						source = {require('./../img/search_icon.png')}
