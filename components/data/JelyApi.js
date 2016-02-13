@@ -56,5 +56,10 @@ export default class JelyApi{
     const token = await AsyncStorage.getItem('fbToken')
     return token
   }
+
+  static removeTokenAndUserId(){
+    AsyncStorage.setItem("fbToken", "")
+    AsyncStorage.setItem("fbUserId", "")
+  }
 }
 

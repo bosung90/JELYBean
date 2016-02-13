@@ -16,10 +16,10 @@ var JelyLogin = React.createClass({
     if(Platform.OS ==="ios"){
       JelyApi.storeUserInfo(data.credentials.token, data.credentials.userId)
     } else{
-      JelyApi.storeUserInfo(data.profile.token, data.profile.id)
+      JelyApi.storeUserInfo(data.token, data.profile.id)
     }
   },
-  
+
   render: function() {
     var _this = this;
       return (
@@ -34,6 +34,7 @@ var JelyLogin = React.createClass({
           }}
           onLogout={function(){
             console.log("Logged out.");
+            JelyApi.removeTokenAndUserId();
             _this.setState({ user : null });
           }}
           onLoginFound={function(data){
