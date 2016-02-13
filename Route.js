@@ -24,7 +24,7 @@ export default class Route extends Component{
 	  return (
       <Navigator
         initialRoute={{
-          scene_component: Post,
+          scene_component: Login,
         }}
         renderScene={(route, navigator) => {
           return React.createElement(route.scene_component, { navigator });
