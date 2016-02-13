@@ -1,3 +1,4 @@
+import JelyApi from './../data/JelyApi'
 
 import React, {
 	Component,
