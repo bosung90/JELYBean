@@ -2,6 +2,7 @@ var React = require('react-native')
 var FBLogin = require('react-native-facebook-login');
 var FBLoginManager = require('NativeModules').FBLoginManager;
 import MainMenu from './MainMenu'
+//import Login from './Login'
 
 
 import JelyApi from './../data/JelyApi'
@@ -19,11 +20,12 @@ var JelyLogin = React.createClass({
           console.log("Logged in!");
           console.log(data);
           JelyApi.storeUserInfo(data.credentials.token, data.credentials.userId)
-          _this.props.navigator.replace({scene_component: MainMenu})
+          _this.props.navigator.replace({scene_component: MainMenu, prop: _this.props})
         }}
         onLogout={function(){
           console.log("Logged out.");
           _this.setState({ user : null });
+          //_this.props.navigator.replace({scene_component: Login, prop: _this.props})
         }}
         onLoginFound={function(data){
           console.log("Existing login found.");

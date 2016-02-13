@@ -28,14 +28,11 @@ export default class Login extends Component {
 		prop = props
 	}
 	componentDidMount() {
-		JelyApi.getUserId().then((userId)=>{
-			if(userId){
+		JelyApi.getToken().then((token)=>{
+			if(token){
 				prop.navigator.replace({scene_component: MainMenu, prop: prop})
 			}
 		})
-	}
-	_fbLogin() {
-		prop.navigator.replace({scene_component: MainMenu, prop: prop})
 	}
 	render(){
 		return(
