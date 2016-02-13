@@ -71,7 +71,7 @@ export default class Post extends Component {
 					    	onChangeText={(text) => mySelf.setState({location:text})}
 					    	value={mySelf.state.location}
 					    	textAlign='center'/>
-				    	<Text style = {styles.text}>BY</Text>
+				    	<Text style = {styles.text}>CONTACT</Text>
 						<TextInput style={styles.textInput}
 					    	autoCorrect={false}
 								placeholder='Contact'
