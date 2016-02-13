@@ -19,6 +19,7 @@ import React, {
 	InteractionManager,
 } from 'react-native'
 import Post from './Post'
+const JelyLogin = require('./JelyLogin')
 
 const {height, width} = Dimensions.get('window')
 var name = 'Jenny'
@@ -55,13 +56,31 @@ export default class MainMenu extends Component{
 				<Text style = {styles.text2}>Imagining the passion of your kiss</Text>
 				<Text style = {styles.text2}>Wanting to feel a belonging</Text>
 				<Text style = {styles.text2}>Needing to be needed</Text>
+				
 				<View style = {styles.line}></View>
-				<Text style = {styles.text3}>UPCOMING DATES</Text>
-				<View style = {styles.line}></View>
-				<Text style = {styles.text3}>IN YOUR AREA</Text>
-				<View style = {styles.line}></View>
-				<Text style = {styles.text3}>IN YOUR AREA</Text>
+				<Text style = {styles.text3}>WEEKEND DATES</Text>
+				<Image style = {styles.recommendationImages}
+					source = {require('./../img/weekend_dates.jpg')}
+				/>
+				<Text style = {styles.text4}>Movie Date @Dunbar Theatre</Text>
 
+				<View style = {styles.line}></View>
+				<Text style = {styles.text3}>NEARBY DATES</Text>
+				<Image style = {styles.recommendationImages}
+					source = {require('./../img/nearby_dates.jpg')}
+				/>
+				<Text style = {styles.text4}>Kitsilano Beach Picnic</Text>
+
+				<View style = {styles.line}></View>
+				<Text style = {styles.text3}>POPULAR DATES</Text>
+				<Image style = {styles.recommendationImages}
+					source = {require('./../img/popular_dates.jpg')}
+				/>
+				<Text style = {styles.text4}>Let's Guitar Jam</Text>
+
+				<View style = {styles.logoutButton}>
+					<JelyLogin/>
+				</View>
 			</ScrollView>
 		)
 	}
@@ -108,8 +127,16 @@ var styles = StyleSheet.create({
 		alignSelf: 'flex-start',
 		fontSize: 10,
 		color: '#404040',
-		marginLeft: 20,
-		marginTop: 20
+		marginLeft: 23,
+		marginTop: 10
+	},
+	text4: {
+		
+		alignSelf: 'flex-start',
+		fontSize: 15,
+		color: '#404040',
+		marginLeft: 23,
+		marginTop: 5
 	},
 	line: {
 		backgroundColor: '#bababa',
@@ -118,5 +145,15 @@ var styles = StyleSheet.create({
 		alignSelf: 'center',
 		marginTop: 30
 	},
+	recommendationImages: {
+		alignSelf: 'center',
+		width: width*0.9,
+		height: width/2,
+		marginTop: 1
+	},
+	logoutButton: {
+		alignItems: 'center',
+		marginTop: 50
+	}
 
 })
