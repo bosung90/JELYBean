@@ -2,19 +2,24 @@
  * Sample React Native App
  * https://github.com/facebook/react-native
  */
-'use strict';
-const React  = require('react-native');
-const Route = require ('./Route');
-const {
-  AppRegistry,
-} = React
+'use strict'
 
-const JELYBean = React.createClass({
+import Route from './Route.js'
+
+import React, {
+  AppRegistry,
+  Component,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native'
+
+class JELYBean extends Component {
   render() {
     return (
       <Route />
     )
   }
-})
+}
 
-AppRegistry.registerComponent('JELYBean', () => JELYBean);
+AppRegistry.registerComponent('JELYBean', () => JELYBean)

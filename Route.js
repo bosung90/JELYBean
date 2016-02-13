@@ -1,9 +1,8 @@
 'use strict'
 
-const React = require('react-native')
-const Login = require('./components/pages/login')
-
-const {
+import Login from './components/pages/login'
+import React, {
+	Component,
 	StyleSheet,
 	View,
 	Navigator,
@@ -16,15 +15,13 @@ const {
 	BackAndroid,
 	DrawerLayoutAndroid,
 	InteractionManager,
-} = React
+} from 'react-native'
 
-const Route = React.createClass({
+export default class Route extends Component{
 	render(){
 		return(
 			<Login />
-		);
+		)
 	}
-})
-	
+}
 
-module.exports = Route

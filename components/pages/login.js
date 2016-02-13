@@ -1,7 +1,5 @@
 'use strict'
 
-//const Display = require('react-native-device-display')
-
 import React, {
 	Component,
 	StyleSheet,
@@ -39,5 +37,3 @@ var styles = StyleSheet.create({
     resizeMode: "cover"
 	}
 })
-
-module.exports = Login
