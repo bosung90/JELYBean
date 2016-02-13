@@ -1,7 +1,5 @@
 'use strict'
 
-//const Display = require('react-native-device-display')
-
 import React, {
 	Component,
 	StyleSheet,
