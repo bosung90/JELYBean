@@ -3,18 +3,18 @@ const Firebase = require('firebase')
 const ref = new Firebase("https://jelybean.firebaseio.com")
 const postRef = new Firebase("https://jelybean.firebaseio.com/posts")
 import React, {
-  Component,
   AsyncStorage,
 } from 'react-native'
 
-export default class JelyApi extends Component{
+export default class JelyApi{
   // create a post
-  static createPost(date, photo, location, activity, userid){
+  static createPost(date, photo, location, activity){
+    let userId = getUserId()
   	postRef.push().set({
   		date: date, 
   		location: location,
   		activity: activity,
-  		userid: userid,
+  		userId: userId,
   	})
   }
 
@@ -25,33 +25,30 @@ export default class JelyApi extends Component{
 
   }
 
-  static retrieveMyPosts(){
+  static async retrieveMyPosts(){
+    let userId = undefined
+    try {
+      userId = await JelyApi.getUserId()
+    } catch (error) { alert(JSON.stringify(error)) }
+    // alert(userId)
+    //var ref = new Firebase("https://dinosaur-facts.firebaseio.com/dinosaurs");
+postRef.orderByChild("userid").equalTo(userId).on("value", function(snapshot) {
+  return snapshot.val()
+})
 
   }
 
   // facebook login
-  static fbLogin(){
-    alert('calling fbLogin')
-    let promise = new Promise((resolve, reject) =>{
-      ref.authWithOAuthPopup("facebook", function(error, authData) {
-        alert('return from auth')
-        if (error) {
-          console.log("Login Failed!", error)
-          reject({message: 'Login Failed'})
-        } else {
-          console.log("Authenticated successfully with payload:", authData)
-          AsyncStorage.setItem("fbToken", authData.token)
-          AsyncStorage.setItem("fbUserId", authData.uid)
-          resolve(authData)
-        }
-      })
-    })
-    return promise
+  static storeUserInfo(token, userId){
+    alert(token + ' : ' + userId)
+    AsyncStorage.setItem("fbToken", token)
+    AsyncStorage.setItem("fbUserId", userId)
+
   }
 
   static async getUserId(){
     const userId = await AsyncStorage.getItem('fbUserId')
-    alert(userId)
+    // alert(userId)
     return userId
   }
 
