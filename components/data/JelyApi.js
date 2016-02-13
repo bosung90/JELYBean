@@ -8,55 +8,54 @@ import React, {
 
 export default class JelyApi{
   // create a post
-  static createPost(date, photo, location, activity){
-    let userId = getUserId()
-  	postRef.push().set({
-  		date: date, 
+  static async createPost(actDate, photo, location, activity){
+    let userId = await JelyApi.getUserId()
+  	postRef.push({
+  		activityDate: actDate, 
   		location: location,
   		activity: activity,
   		userId: userId,
+      postDate: Date.now(),
+      photo: photo
   	})
   }
 
-
-  // retrieve all posts by a user
+  // Retrieve top 10 posts
   static retrieveLatestPosts(){
-
-
+    let promise = new Promise((resolve) => {
+      postRef.orderByChild("postDate").limitToLast(10).on("value", (snapshot)=>{
+        resolve(snapshot.val())
+      })
+    })
+    return promise
   }
 
-  static async retrieveMyPosts(){
-    let userId = undefined
-    try {
-      userId = await JelyApi.getUserId()
-    } catch (error) { alert(JSON.stringify(error)) }
-    // alert(userId)
-    //var ref = new Firebase("https://dinosaur-facts.firebaseio.com/dinosaurs");
-postRef.orderByChild("userid").equalTo(userId).on("value", function(snapshot) {
-  return snapshot.val()
-})
-
+  // Retrieve top 10 posts by a user
+  static retrieveMyPosts(){
+    let promise = new Promise((resolve) => {
+      JelyApi.getUserId().then((userId)=>{
+        postRef.orderByChild("userId").equalTo(userId).limitToLast(10).on("value", (snapshot)=> {
+          resolve(snapshot.val())
+        })
+      })
+    })
+    return promise
   }
 
-  // facebook login
   static storeUserInfo(token, userId){
     alert(token + ' : ' + userId)
     AsyncStorage.setItem("fbToken", token)
     AsyncStorage.setItem("fbUserId", userId)
-
   }
 
   static async getUserId(){
     const userId = await AsyncStorage.getItem('fbUserId')
-    // alert(userId)
     return userId
   }
 
   static async getToken(){
     const token = await AsyncStorage.getItem('fbToken')
-    alert(token)
     return token
   }
-
 }
 
