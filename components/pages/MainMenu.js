@@ -60,7 +60,7 @@ export default class MainMenu extends Component{
 				<View style = {styles.line}></View>
 				<Text style = {styles.text3}>IN YOUR AREA</Text>
 				<View style = {styles.line}></View>
-				
+				<Text style = {styles.text3}>IN YOUR AREA</Text>
 
 			</ScrollView>
 		)
