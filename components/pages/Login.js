@@ -26,15 +26,11 @@ export default class Login extends Component {
 	constructor(props) {
 		super(props)
 		_this = this
-		this.state = {
-			showLogin: false
-		}
-		// prop = props
 	}
 	componentDidMount() {
 		JelyApi.getToken().then((token)=>{
 			if(token){
-				_this.props.navigator.replace({scene_component: MainMenu, prop: _this.props})
+				_this.props.navigator.replace({id: 'mainMenu'})
 			} else {
 				_this.setState({
 					showLogin: true
@@ -48,20 +44,14 @@ export default class Login extends Component {
 				<Image style = {styles.background} source = {require('./../img/mainbg.jpg')}/>
 				<Image style = {styles.logo} source = {require('./../img/logo.png')}/>
 				<View style = {styles.loginButton}>
-					{_this.state.showLogin?
-						<JelyLogin {..._this.props} />
-						:
-						null
-					}
+					<JelyLogin {..._this.props} />
 				</View>	
 			</View>
 		)
 	}
 }
 	
-
-
-
+module.exports = Login
 
 var styles = StyleSheet.create({
 	container: {

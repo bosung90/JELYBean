@@ -18,7 +18,7 @@ import React, {
 	DrawerLayoutAndroid,
 	InteractionManager,
 } from 'react-native'
-import Post from './Post'
+// import Post from './Post'
 const JelyLogin = require('./JelyLogin')
 
 const {height, width} = Dimensions.get('window')
@@ -36,7 +36,7 @@ export default class MainMenu extends Component{
 						source = {require('./../img/main_menu_img1.jpg')}
 						resizeMode={Image.resizeMode.cover}
 					/>
-					<TouchableOpacity onPress ={()=>{_this.props.navigator.push({scene_component: Post, prop: _this.props})}}>
+					<TouchableOpacity onPress ={()=>{_this.props.navigator.push({id: 'post', prop: _this.props})}}>
 						<Image
 							style = {styles.newPostIcon}
 							source = {require('./../img/new_post_icon.png')}
@@ -79,7 +79,7 @@ export default class MainMenu extends Component{
 				<Text style = {styles.text4}>Let's Guitar Jam</Text>
 
 				<View style = {styles.logoutButton}>
-					<JelyLogin/>
+					<JelyLogin {..._this.props}/>
 				</View>
 			</ScrollView>
 		)
