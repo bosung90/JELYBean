@@ -41,7 +41,9 @@ export default class Login extends Component {
 					source = {require('./../img/mainbg.jpg')}/>
 				<Image style = {styles.logo}
 					source = {require('./../img/logo.png')}/>
-				<JelyLogin {...prop}/>
+				<View style = {styles.loginButton}>
+					<JelyLogin {...prop}/>
+				</View>	
 			</View>
 		)
 	}
@@ -62,13 +64,9 @@ var styles = StyleSheet.create({
     resizeMode: "cover"
 	},
 	logo: {
-		marginTop: 280,
-	},
-	button: {
-		marginTop: 100
-	},
-	buttonText: {
-		fontSize: 30,
-		backgroundColor: 'rgba(0,0,0,0)',
-	}	
+		marginTop: 200,
+	},	
+	loginButton: {
+		marginTop:60
+	}
 })
