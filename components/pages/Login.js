@@ -30,7 +30,7 @@ export default class Login extends Component {
 	componentDidMount() {
 		JelyApi.getToken().then((token)=>{
 			if(token){
-				_this.props.navigator.replace({id: 'mainMenu'})
+				_this.props.navigator.replace({scene_component: MainMenu})
 			} else {
 				_this.setState({
 					showLogin: true

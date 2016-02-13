@@ -33,20 +33,20 @@ export default class Route extends Component{
       <Navigator
 				ref='navigator'
         initialRoute={{
-          id: 'login'
+          scene_component: Login
         }}
         renderScene={(route, navigator) => {
 					// alert(route.prop)
-					if(route.id === 'login') {
-						return <Login route={route} navigator={navigator} />
-					} else if(route.id === 'mainMenu') {
-						return <MainMenu route={route} navigator={navigator} />
-					} else if(route.id === 'post') {
-						return <Post route={route} navigator={navigator} />
-					} else if(route.id === 'postDetail') {
-						return <PostDetail route={route} navigator={navigator} />
-					}
-//           return React.createElement(route.scene_component, {navigator})
+					// if(route.id === 'login') {
+					// 	return <Login route={route} navigator={navigator} />
+					// } else if(route.id === 'mainMenu') {
+					// 	return <MainMenu route={route} navigator={navigator} />
+					// } else if(route.id === 'post') {
+					// 	return <Post route={route} navigator={navigator} />
+					// } else if(route.id === 'postDetail') {
+					// 	return <PostDetail route={route} navigator={navigator} />
+					// }
+          return React.createElement(route.scene_component, {route, navigator})
         }}
       />
     )	
