@@ -32,12 +32,14 @@ var JelyLogin = React.createClass({
             console.log(data);
             _this.storeUserInfoToJelyApi (data)
             _this.props.navigator.replace({id: 'mainMenu'})
+
           }}
           onLogout={function(){
             console.log("Logged out.");
             JelyApi.removeTokenAndUserId();
             _this.setState({ user : null });
             _this.props.navigator.replace({id: 'login'})
+
           }}
           onLoginFound={function(data){
             console.log("Existing login found.");
