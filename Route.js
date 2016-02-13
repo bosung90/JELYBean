@@ -27,6 +27,7 @@ export default class Route extends Component{
           scene_component: Login,
         }}
         renderScene={(route, navigator) => {
+	
           return React.createElement(route.scene_component, { navigator });
         }}
       />
