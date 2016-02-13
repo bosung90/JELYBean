@@ -24,10 +24,11 @@ export default class Post extends Component {
 			purpose: '',
 			date: '',
 			location: '',
+			contact: '',
 		}
 	}
 	_onPressSubmit(){
-		JelyApi.createPost(mySelf.state.date, mySelf.state.photo, mySelf.state.location, mySelf.state.purpose)
+		JelyApi.createPost(mySelf.state.date, mySelf.state.photo, mySelf.state.location, mySelf.state.purpose, mySelf.state.contact)
 		mySelf.props.navigator.pop()
 	}
 	render() {
@@ -70,11 +71,15 @@ export default class Post extends Component {
 					    	onChangeText={(text) => mySelf.setState({location:text})}
 					    	value={mySelf.state.location}
 					    	textAlign='center'/>
-
-						
-
-
-
+				    	<Text style = {styles.text}>BY</Text>
+						<TextInput style={styles.textInput}
+					    	autoCorrect={false}
+								placeholder='Contact'
+								placeholderTextColor='#C7C7CD'
+								autoCapitalize='none'
+					    	onChangeText={(text) => mySelf.setState({contact:text})}
+					    	value={mySelf.state.contact}
+					    	textAlign='center'/>
 
 
 						<TouchableOpacity onPress={mySelf._onPressSubmit}>

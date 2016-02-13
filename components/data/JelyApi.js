@@ -8,7 +8,7 @@ import React, {
 
 export default class JelyApi{
   // create a post
-  static async createPost(actDate, photo, location, activity){
+  static async createPost(actDate, photo, location, activity, contact){
     let userId = await JelyApi.getUserId()
   	postRef.push({
   		activityDate: actDate, 
@@ -16,7 +16,8 @@ export default class JelyApi{
   		activity: activity,
   		userId: userId,
       postDate: Date.now(),
-      photo: photo
+      photo: photo,
+      contact: contact,
   	})
   }
 
