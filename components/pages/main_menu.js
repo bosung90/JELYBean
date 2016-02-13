@@ -30,7 +30,7 @@ export default class MainMenu extends Component{
 					<Image 
 						style = {styles.mainImage}
 						source = {require('./../img/main_menu_img1.jpg')}
-						resizeMode={Image.resizeMode.contain}
+						resizeMode={Image.resizeMode.cover}
 					/>
 					<Image
 						style = {styles.newPostIcon}
@@ -86,7 +86,7 @@ var styles = StyleSheet.create({
 	text2: {
 		fontFamily: 'Cochin',
 		alignSelf: 'center',
-		fontSize: 16,
+		fontSize: 14,
 		color: '#404040'
 	},
 	line: {
