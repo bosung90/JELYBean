@@ -43,7 +43,6 @@ export default class JelyApi{
   }
 
   static storeUserInfo(token, userId){
-    alert(token + ' : ' + userId)
     AsyncStorage.setItem("fbToken", token)
     AsyncStorage.setItem("fbUserId", userId)
   }

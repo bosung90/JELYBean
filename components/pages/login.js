@@ -17,6 +17,7 @@ import React, {
 	InteractionManager,
 } from 'react-native'
 import MainMenu from './main_menu'
+const JelyLogin  = require('./JelyLogin')
 
 let prop
 
@@ -35,9 +36,7 @@ export default class Login extends Component {
 					source = {require('./../img/mainbg.jpg')}/>
 				<Image style = {styles.logo}
 					source = {require('./../img/logo.png')}/>
-				<TouchableOpacity onPress={this._fbLogin} style = {styles.button}>
-				  <Text style = {styles.buttonText}>Facebook Login</Text>
-				</TouchableOpacity>
+				<JelyLogin {...prop}/>
 			</View>
 		)
 	}
