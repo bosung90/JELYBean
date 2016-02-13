@@ -1,6 +1,8 @@
 'use strict'
+
 import MainMenu from './components/pages/main_menu'
 import Login from './components/pages/login'
+import Post from './components/pages/Post'
 import React, {
 	Component,
 	StyleSheet,
