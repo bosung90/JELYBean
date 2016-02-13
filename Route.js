@@ -24,7 +24,7 @@ export default class Route extends Component{
 	  return (
       <Navigator
         initialRoute={{
-          scene_component: Login,
+          scene_component: Post,
         }}
         renderScene={(route, navigator) => {
 	
