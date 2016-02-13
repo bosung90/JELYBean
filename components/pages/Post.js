@@ -26,15 +26,10 @@ export default class Post extends Component {
 			location: '',
 		}
 	}
-
 	_onPressSubmit(){
-		//alert(mySelf.state.purpose+" "+mySelf.state.date+" "+mySelf.state.location)
-		JelyApi.createPost(mySelf.state.purpose,mySelf.state.photo,mySelf.state.location,mySelf.state.date)
-		//Todo: 
-		//Redirect to MainMenu or Upcomming
-		
+		JelyApi.createPost(mySelf.state.date, mySelf.state.photo, mySelf.state.location, mySelf.state.purpose)
+		mySelf.props.navigator.pop()
 	}
-
 	render() {
 		return(
 			<View>
