@@ -7,7 +7,7 @@ const {
 } = React
 
 import JelyApi from './../data/JelyApi'
-//import Login from './Login'
+import Login from './Login'
 
 // Getting name from facebook
 // https://graph.facebook.com/<userid>/?fields=first_name,last_name&access_token=<>
