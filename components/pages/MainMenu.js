@@ -79,7 +79,7 @@ export default class MainMenu extends Component{
 				<Text style = {styles.text4}>Let's Guitar Jam</Text>
 
 				<View style = {styles.logoutButton}>
-					<JelyLogin/>
+					<JelyLogin {..._this.props}/>
 				</View>
 			</ScrollView>
 		)

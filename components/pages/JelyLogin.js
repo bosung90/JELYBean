@@ -7,7 +7,7 @@ const {
 } = React
 
 import JelyApi from './../data/JelyApi'
-//import Login from './Login'
+import Login from './Login'
 
 // Getting name from facebook
 // https://graph.facebook.com/<userid>/?fields=first_name,last_name&access_token=<>
@@ -31,13 +31,13 @@ var JelyLogin = React.createClass({
             console.log("Logged in!");
             console.log(data);
             _this.storeUserInfoToJelyApi (data)
-            _this.props.navigator.replace({scene_component: MainMenu})
+            _this.props.navigator.replace({scene_component: MainMenu, prop: _this.props})
           }}
           onLogout={function(){
             console.log("Logged out.");
             JelyApi.removeTokenAndUserId();
             _this.setState({ user : null });
-            _this.props.navigator.replace({scene_component: Login})
+            _this.props.navigator.replace({scene_component: Login, prop: _this.props})
           }}
           onLoginFound={function(data){
             console.log("Existing login found.");
