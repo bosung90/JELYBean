@@ -56,6 +56,12 @@ export default class MainMenu extends Component{
 				<Text style = {styles.text2}>Wanting to feel a belonging</Text>
 				<Text style = {styles.text2}>Needing to be needed</Text>
 				<View style = {styles.line}></View>
+				<Text style = {styles.text3}>UPCOMING DATES</Text>
+				<View style = {styles.line}></View>
+				<Text style = {styles.text3}>IN YOUR AREA</Text>
+				<View style = {styles.line}></View>
+				<
+
 			</ScrollView>
 		)
 	}
@@ -96,6 +102,14 @@ var styles = StyleSheet.create({
 		alignSelf: 'center',
 		fontSize: 14,
 		color: '#404040'
+	},
+	text3: {
+		fontFamily: 'Cochin',
+		alignSelf: 'flex-start',
+		fontSize: 10,
+		color: '#404040',
+		marginLeft: 20,
+		marginTop: 20
 	},
 	line: {
 		backgroundColor: '#bababa',
