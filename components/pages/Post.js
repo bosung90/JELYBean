@@ -13,21 +13,21 @@ import React, {
 
 const {height, width} = Dimensions.get('window')
 
+let mySelf
+
 export default class Post extends Component {
-	constructor(){
-		super()
-		
-	}
-	componentDidMount(){
-		// alert(width)
-		//alert(this.date)
-		wants = '';
-		date = '';
-		location = '';
+	constructor(props){
+		super(props)
+		mySelf = this
+		this.state={
+			purpose: '',
+			date: '',
+			location: '',
+		}
 	}
 
 	_onPressSubmit(){
-		alert(this.wants+" "+this.date+" "+this.location)
+		alert(mySelf.state.purpose+" "+mySelf.state.date+" "+mySelf.state.location)
 	}
 
 	render() {
@@ -35,33 +35,33 @@ export default class Post extends Component {
 			<View>
 				<ScrollView style={{height: height}}>
 					<View style = {styles.container}>
-				      	<Image
-				        	style={styles.postPoto}
-				        	source={{uri: 'http://facebook.github.io/react/img/logo_og.png'}}
-				      	/>
-						<Text>What do you want to do?</Text>
+		      	<Image
+		        	style={styles.postPoto}
+		        	source={{uri: 'http://facebook.github.io/react/img/logo_og.png'}}
+		      	/>
+				    <Text>Location</Text>
 						<TextInput
 					    	style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-					    	onChangeText={(text) => {this.wants=text;}}
-					    	value={this.wants}					  	
-					    />
+					    	onChangeText={(text) => {mySelf.setState({location:text})}}
+					    	value={mySelf.state.location}					  	
+					  />
 						<Text>Date</Text>
 						<TextInput
 					    	style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-					    	onChangeText={(text) => {this.date=text;}}
-					    	value={this.date}					  	
-					    />
-						<Text>Location</Text>
+					    	onChangeText={(text) => {mySelf.setState({date:text})}}
+					    	value={mySelf.state.date}					  	
+					  />
+						<Text>What do you want to do?</Text>
 						<TextInput
 					    	style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-					    	onChangeText={(text) => {this.location=text;}}
-					    	value={this.location}					  	
+					    	onChangeText={(text) => {mySelf.setState({purpose: text})}}
+					    	value={mySelf.state.purpose}					  	
+					  />
+						<TouchableOpacity onPress={mySelf._onPressSubmit}>
+					    <Image
+					        style={styles.submit}
+					        source={{uri: 'http://facebook.github.io/react/img/logo_og.png'}}
 					    />
-						<TouchableOpacity onPress={this._onPressSubmit}>
-						    <Image
-						        style={styles.submit}
-						        source={{uri: 'http://facebook.github.io/react/img/logo_og.png'}}
-						    />
 						</TouchableOpacity>
 					</View>
 				</ScrollView>

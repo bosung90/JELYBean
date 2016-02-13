@@ -1,5 +1,7 @@
 'use strict'
 
+import MainMenu from './components/pages/main_menu'
+import Login from './components/pages/login'
 import Post from './components/pages/Post'
 import React, {
 	Component,
@@ -16,12 +18,22 @@ import React, {
 	DrawerLayoutAndroid,
 	InteractionManager,
 } from 'react-native'
-
+var page = 'login';
 export default class Route extends Component{
 	render(){
-		return(
-			<Post />
-		)
+	  return (
+      <Navigator
+        initialRoute={{
+          scene_component: Post,
+        }}
+        renderScene={(route, navigator) => {
+          return React.createElement(route.scene_component, { navigator });
+        }}
+      />
+    )	
 	}
 }
+
+
+
 
