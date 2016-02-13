@@ -20,6 +20,7 @@ export default class Post extends Component {
 		super(props)
 		mySelf = this
 		this.state={
+			photo: 'http://facebook.github.io/react/img/logo_og.png',
 			purpose: '',
 			date: '',
 			location: '',
@@ -27,7 +28,11 @@ export default class Post extends Component {
 	}
 
 	_onPressSubmit(){
-		alert(mySelf.state.purpose+" "+mySelf.state.date+" "+mySelf.state.location)
+		//alert(mySelf.state.purpose+" "+mySelf.state.date+" "+mySelf.state.location)
+		JelyApi.createPost(mySelf.state.purpose,mySelf.state.photo,mySelf.state.location,mySelf.state.date)
+		//Todo: 
+		//Redirect to MainMenu or Upcomming
+		
 	}
 
 	render() {
