@@ -8,6 +8,7 @@ import React, {
 } from 'react-native'
 import JelyApi from './../data/JelyApi'
 
+
 let _this
 
 export default class PostList extends Component {
@@ -31,13 +32,17 @@ export default class PostList extends Component {
 	}
 	render() {
 		return(
+			<View>
+				
+			</View>
 			<View style={styles.container}>
 				<ListView dataSource={this.state.postListData}
 				renderRow={(rowData) =>(
 					<View>
-						<Text>Activity: {rowData.activity}</Text>
+						<Text>{rowData.activity}</Text>
 						<Text>Location: {rowData.location}</Text>
-						<Text>postDate: {rowData.postDate}</Text>
+						<Text>Time: {rowData.activityDate}</Text>
+						<Text>Contact: {rowData.contact}
 						<Text></Text>
 					</View>
 				)
