@@ -1,6 +1,6 @@
 'use strict'
 
-import Login from './components/pages/login'
+import Post from './components/pages/Post'
 import React, {
 	Component,
 	StyleSheet,
@@ -20,7 +20,7 @@ import React, {
 export default class Route extends Component{
 	render(){
 		return(
-			<Login />
+			<Post />
 		)
 	}
 }
