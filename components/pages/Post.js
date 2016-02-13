@@ -39,21 +39,24 @@ export default class Post extends Component {
 		return(
 			<View>
 				<ScrollView style={{height: height}}>
+					<View>
+						<Image style = {styles.bgImage}
+							source = {require('./../img/postbg.jpg')}
+						/>
+					</View>
 					<View style = {styles.container}>
-		      	<Image
-		        	style={styles.postPoto}
-		        	source={{uri: 'http://facebook.github.io/react/img/logo_og.png'}}
-		      	/>
-				    <Text>Location</Text>
-						<TextInput style={styles.textInput}
-					    	autoCorrect={false}
-								placeholder='Location'
+						<Text style = {styles.text}>I WANT TO </Text>
+						<TextInput style={styles.purposeInput}
+								autoCorrect={false}
+								placeholder= {'ex) dine out, watch a movie, play badminton, etc.. '}
 								placeholderTextColor='#C7C7CD'
 								autoCapitalize='none'
-					    	onChangeText={(text) => mySelf.setState({location:text})}
-					    	value={mySelf.state.location}
-					    	textAlign='center'/>
-						<Text>Date</Text>
+								multiline={true}
+					    	onChangeText={(text) => {mySelf.setState({purpose: text})}}
+					    	value={mySelf.state.purpose}					  	
+					  	/>
+					  	
+					  	<Text style = {styles.text}>ON</Text>
 						<TextInput style={styles.textInput}
 					    	autoCorrect={false}
 								placeholder= {'dd/mm/yyyy 00:00'}
@@ -62,20 +65,27 @@ export default class Post extends Component {
 					    	onChangeText={(text) => {mySelf.setState({date:text})}}
 					    	value={mySelf.state.date}
 					    	textAlign='center'/>
-						<Text>What do you want to do?</Text>
-						<TextInput style={styles.purposeInput}
-								autoCorrect={false}
-								placeholder= {'ex) dine out, movie night, and etc.'}
+
+				   		<Text style = {styles.text}>AT</Text>
+						<TextInput style={styles.textInput}
+					    	autoCorrect={false}
+								placeholder='Location'
 								placeholderTextColor='#C7C7CD'
 								autoCapitalize='none'
-								multiline={true}
-					    	onChangeText={(text) => {mySelf.setState({purpose: text})}}
-					    	value={mySelf.state.purpose}					  	
-					  />
+					    	onChangeText={(text) => mySelf.setState({location:text})}
+					    	value={mySelf.state.location}
+					    	textAlign='center'/>
+
+						
+
+
+
+
+
 						<TouchableOpacity onPress={mySelf._onPressSubmit}>
 					    <Image
 					        style={styles.submit}
-					        source={{uri: 'http://facebook.github.io/react/img/logo_og.png'}}
+					        source={require('./../img/submit.png')}
 					    />
 						</TouchableOpacity>
 					</View>
@@ -89,32 +99,31 @@ const styles = StyleSheet.create({
 	container: {
 		alignItems: 'center',
 		justifyContent: 'center',
-		backgroundColor: '#46B7C7',
+		//backgroundColor: '#46B7C7',
 		height: height
-		// flex:1,
-		// flexDirection: 'column',
-		// height: 2000,
 	},
-	postPoto: {
-		borderWidth:10,
-		width:100,
-		height:100,
-		alignItems: 'center',
-		justifyContent: 'center',
+	bgImage:{
+		position: 'absolute',
+	},
+	text: {
+		fontSize: 30,
+		fontWeight: 'bold',
+		color: 'white'
 	},
 	submit: {
-		borderWidth:10,
-		width:100,
-		height:30,
+		width:width*0.3,
+		height:width*0.113,
 		alignItems: 'center',
 		justifyContent: 'center',
+		marginTop: 50
 	},
 	textInput: {
 		marginTop: 4,
 		marginBottom: 4,
 		padding: 0,
 		height: 32,
-		width: 200,
+		width: width*0.9,
+		alignSelf: 'center',
 		borderRadius: 4,
 		backgroundColor: 'white',
 	},
@@ -123,7 +132,8 @@ const styles = StyleSheet.create({
 		marginBottom: 4,
 		padding: 0,
 		height: 100,
-		width: 200,
+		width: width*0.9,
+		alignSelf: 'center',
 		borderRadius: 4,
 		backgroundColor: 'white',
 	},
