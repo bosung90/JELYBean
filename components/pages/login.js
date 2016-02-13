@@ -1,10 +1,9 @@
 'use strict'
 
 //const Display = require('react-native-device-display')
-const React = require('react-native')
 
-
-const {
+import React, {
+	Component,
 	StyleSheet,
 	View,
 	Navigator,
@@ -17,18 +16,18 @@ const {
 	BackAndroid,
 	DrawerLayoutAndroid,
 	InteractionManager,
-} = React
+} from 'react-native'
 
-const Login = React.createClass({
+export default class Login extends Component {
 	render(){
 		return(
 			<View style = {styles.container}>
 				<Image style = {styles.background} 
 				source = {require('./../img/mainbg.jpg')}/>
 			</View>
-		);
+		)
 	}
-})
+}
 	
 var styles = StyleSheet.create({
 	container: {
@@ -39,6 +38,6 @@ var styles = StyleSheet.create({
 		flex: 1,
     resizeMode: "cover"
 	}
-});
+})
 
 module.exports = Login
