@@ -3,6 +3,9 @@
  * https://github.com/facebook/react-native
  */
 'use strict';
+
+const Route = require ('./Route');
+
 import React, {
   AppRegistry,
   Component,
