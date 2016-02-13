@@ -16,7 +16,8 @@ import React, {
 	DrawerLayoutAndroid,
 	InteractionManager,
 } from 'react-native'
-import MainMenu from './main_menu'
+import MainMenu from './MainMenu'
+import JelyApi from './../data/JelyApi'
 const JelyLogin  = require('./JelyLogin')
 
 let prop
@@ -26,8 +27,15 @@ export default class Login extends Component {
 		super(props)
 		prop = props
 	}
+	componentDidMount() {
+		JelyApi.getUserId().then((userId)=>{
+			if(userId){
+				prop.navigator.replace({scene_component: MainMenu, prop: prop})
+			}
+		})
+	}
 	_fbLogin() {
-		prop.navigator.replace({scene_component: MainMenu})
+		prop.navigator.replace({scene_component: MainMenu, prop: prop})
 	}
 	render(){
 		return(

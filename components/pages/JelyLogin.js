@@ -1,7 +1,7 @@
 var React = require('react-native')
 var FBLogin = require('react-native-facebook-login');
 var FBLoginManager = require('NativeModules').FBLoginManager;
-import MainMenu from './main_menu'
+import MainMenu from './MainMenu'
 
 
 import JelyApi from './../data/JelyApi'

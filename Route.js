@@ -1,7 +1,7 @@
 'use strict'
 
-import MainMenu from './components/pages/main_menu'
-import Login from './components/pages/login'
+import MainMenu from './components/pages/MainMenu'
+import Login from './components/pages/Login'
 import Post from './components/pages/Post'
 import React, {
 	Component,
@@ -28,7 +28,7 @@ export default class Route extends Component{
         }}
         renderScene={(route, navigator) => {
 	
-          return React.createElement(route.scene_component, { navigator });
+          return React.createElement(route.scene_component, {navigator, prop: route.prop});
         }}
       />
     )	

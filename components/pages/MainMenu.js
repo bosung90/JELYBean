@@ -18,12 +18,15 @@ import React, {
 	DrawerLayoutAndroid,
 	InteractionManager,
 } from 'react-native'
+import Post from './Post'
 
 const {height, width} = Dimensions.get('window')
 var name = 'Jenny'
+let _this
 
 export default class MainMenu extends Component{
 	render(){
+		_this = this
 		return(
 			<ScrollView style={styles.scrollView}>
 				<View style = {styles.imageContainer}>
@@ -32,14 +35,18 @@ export default class MainMenu extends Component{
 						source = {require('./../img/main_menu_img1.jpg')}
 						resizeMode={Image.resizeMode.cover}
 					/>
-					<Image
-						style = {styles.newPostIcon}
-						source = {require('./../img/new_post_icon.png')}
-					/>
+					<TouchableOpacity onPress ={()=>{_this.props.navigator.push({scene_component: Post, prop: _this.props})}}>
+						<Image
+							style = {styles.newPostIcon}
+							source = {require('./../img/new_post_icon.png')}
+						/>
+					</TouchableOpacity>
+					<TouchableOpacity>
 					<Image
 						style = {styles.searchIcon}
 						source = {require('./../img/search_icon.png')}
 					/>
+					</TouchableOpacity>
 				</View>
 				<Text style = {styles.text1}>JELYBEAN</Text>
 				<Text style = {styles.text2}>Looking for the sun to shine again</Text>
@@ -73,6 +80,7 @@ var styles = StyleSheet.create({
 		width: width*0.16,
 		height: width*0.16,
 		marginLeft: 25,
+		marginTop: -0.2*width
 		
 	},
 	text1: {
