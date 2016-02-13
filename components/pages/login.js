@@ -39,5 +39,3 @@ var styles = StyleSheet.create({
     resizeMode: "cover"
 	}
 })
-
-module.exports = Login
