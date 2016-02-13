@@ -1,3 +1,4 @@
+
 import React, {
 	Component,
 	View,
@@ -7,19 +8,33 @@ import React, {
 	ScrollView,
 	StyleSheet,
 	Dimensions,
+	TouchableOpacity,
 } from 'react-native'
+
 const {height, width} = Dimensions.get('window')
 
 export default class Post extends Component {
+	constructor(){
+		super()
+		
+	}
 	componentDidMount(){
 		// alert(width)
-		this.wants = ''
+		//alert(this.date)
+		wants = '';
+		date = '';
+		location = '';
 	}
+
+	_onPressSubmit(){
+		alert(this.wants+" "+this.date+" "+this.location)
+	}
+
 	render() {
 		return(
 			<View>
 				<ScrollView style={{height: height}}>
-					<View>
+					<View style = {styles.container}>
 				      	<Image
 				        	style={styles.postPoto}
 				        	source={{uri: 'http://facebook.github.io/react/img/logo_og.png'}}
@@ -31,78 +46,23 @@ export default class Post extends Component {
 					    	value={this.wants}					  	
 					    />
 						<Text>Date</Text>
-						<Text>Hello Post Page</Text>
+						<TextInput
+					    	style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+					    	onChangeText={(text) => {this.date=text;}}
+					    	value={this.date}					  	
+					    />
 						<Text>Location</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
-						<Text>Hello Post Page</Text>
+						<TextInput
+					    	style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+					    	onChangeText={(text) => {this.location=text;}}
+					    	value={this.location}					  	
+					    />
+						<TouchableOpacity onPress={this._onPressSubmit}>
+						    <Image
+						        style={styles.submit}
+						        source={{uri: 'http://facebook.github.io/react/img/logo_og.png'}}
+						    />
+						</TouchableOpacity>
 					</View>
 				</ScrollView>
 			</View>
@@ -112,6 +72,7 @@ export default class Post extends Component {
 
 const styles = StyleSheet.create({
 	container: {
+		alignItems: 'center'
 		// flex:1,
 		// flexDirection: 'column',
 		// height: 2000,
@@ -120,6 +81,14 @@ const styles = StyleSheet.create({
 		borderWidth:10,
 		width:100,
 		height:100,
-
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
+	submit: {
+		borderWidth:10,
+		width:100,
+		height:30,
+		alignItems: 'center',
+		justifyContent: 'center',
 	},
 })
