@@ -1,10 +1,8 @@
 import React, {
 	Component,
-	Dimensions,
 	View,
 	Text,
 	Image,
-	ScrollView,
 	StyleSheet,
 	ListView,
 } from 'react-native'
@@ -12,7 +10,6 @@ import JelyApi from './../data/JelyApi'
 
 
 let _this
-const {height, width} = Dimensions.get('window')
 
 export default class PostList extends Component {
 	constructor(props){
@@ -37,26 +34,20 @@ export default class PostList extends Component {
 		return(
 			<View>
 				<ScrollView style={{height: height}}>
+				
+			</View>
+			<View style={styles.container}>
+				<ListView dataSource={this.state.postListData}
+				renderRow={(rowData) =>(
 					<View>
-						<Image
-							style = {styles.postListBG}
-							source = {require('./../img/postListbg.jpg')}
-						/>
+						<Text>{rowData.activity}</Text>
+						<Text>Location: {rowData.location}</Text>
+						<Text>Time: {rowData.activityDate}</Text>
+						<Text>Contact: {rowData.contact}</Text>
+						<Text></Text>
 					</View>
-					<View style={styles.container}>
-						<ListView dataSource={this.state.postListData}
-						renderRow={(rowData) =>(
-							<View>
-								<Image style = {styles.profileImage} source = {require('./../img/profileImage.png')} />
-								<Text style = {styles.text1}>{rowData.activity}</Text>
-								<Text style = {styles.text2}>Location: {rowData.location}</Text>
-								<Text style = {styles.text2}>Time: {rowData.activityDate}</Text>
-								<Text style = {styles.text2}>Contact: {rowData.contact}</Text>
-							</View>
-						)
-						}/>
-					</View>
-				</ScrollView>	
+				)
+				}/>
 			</View>
 		)
 	}
@@ -68,27 +59,6 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		marginTop: 15,
 	},
-	postListBG: {
-		position: 'absolute',
-	},
-	profileImage: {
-		marginTop: 40,
-		marginLeft: 20
-	},
-	text1: {
-		marginTop: 5,
-		marginLeft: 20,
-		width: width*.9,
-		color: '#65230f',
-		fontWeight: 'bold',
-		fontSize: 15
-	},
-	text2: {
-		marginLeft: 20,
-		color: '#65230f',
-		fontSize: 13
-	},
-
 })
 
 module.exports = PostList
